@@ -3,8 +3,8 @@ import HelloWorld from './components/HelloWorld.vue'
 import { NConfigProvider, GlobalTheme, darkTheme, lightTheme } from 'naive-ui'
 import { getTheme } from './utils/cookies';
 
+const theme: GlobalTheme = getTheme() ? darkTheme : lightTheme
 
-  const theme: GlobalTheme = getTheme() ? darkTheme : lightTheme
 </script>
 
 <template>
@@ -12,8 +12,6 @@ import { getTheme } from './utils/cookies';
     <HelloWorld msg="Vite + Vue" />
     <router-view />
   </NConfigProvider>
-
-
 </template>
 
 <style scoped>
