@@ -1,16 +1,22 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { NButton } from 'naive-ui';
+import { setTheme } from '../utils/cookies';
 
 defineProps<{ msg: string }>()
 
 const count = ref(0)
+
+
+const handelClick = () => { setTheme("dark") }
+
 </script>
 
 <template>
   <h1>{{ msg }}</h1>
 
   <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
+    <n-button type="primary" @click="handelClick">count is {{ count }}</n-button>
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMR
