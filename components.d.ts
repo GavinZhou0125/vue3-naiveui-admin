@@ -7,6 +7,9 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AppDefaultProvider: typeof import('./src/components/App/AppDefaultProvider.vue')['default']
+    AppDefaultProvier: typeof import('./src/components/App/AppDefaultProvier.vue')['default']
+    Header: typeof import('./src/components/Header/Header.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     RouterLink: typeof import('vue-router')['RouterLink']

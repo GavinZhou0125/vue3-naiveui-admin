@@ -1,39 +1,26 @@
 <script setup lang="ts">
-  import { ref } from 'vue';
-  import { NButton } from 'naive-ui';
-  import { setTheme } from '../utils/cookies';
+import { NButton } from 'naive-ui';
+import { useDesignSettingStore } from '@/store/modules/themeStore';
 
   defineProps<{ msg: string }>();
 
-  const count = ref(0);
+
+  const designStore = useDesignSettingStore()
 
   const handelClick = () => {
-    setTheme('dark');
+    designStore.darkTheme = !designStore.darkTheme
   };
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <h1>{{ designStore.darkTheme ? '深' : '浅' }}色主题</h1>
 
   <div class="card">
-    <n-button type="primary" @click="handelClick">count is {{ count }}</n-button>
+    <n-button type="primary" @click="handelClick">change theme</n-button>
     <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
+      {{ designStore.appTheme }}
     </p>
   </div>
-
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank">create-vue</a>, the
-    official Vue + Vite starter
-  </p>
-  <p>
-    Install
-    <a href="https://github.com/vuejs/language-tools" target="_blank">Volar</a>
-    in your IDE for a better DX
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
 </template>
 
 <style scoped>

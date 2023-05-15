@@ -1,8 +1,14 @@
+import HelloWorld from '@/components/HelloWorld.vue';
 import type { App } from 'vue';
 import type { RouteRecordRaw } from 'vue-router';
 import { createRouter, createWebHashHistory } from 'vue-router';
 
-const routes: RouteRecordRaw[] = [];
+const routes: RouteRecordRaw[] = [
+  {
+    path: "/",
+    component: HelloWorld
+  }
+];
 
 export const router = createRouter({
   history: createWebHashHistory(),
